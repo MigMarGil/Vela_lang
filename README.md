@@ -1,3 +1,8 @@
+<p align="center">
+  <img src="assets/vela-icon.svg" alt="Vela Logo" width="200"/>
+</p>
+
+
 # Vela (ENGLISH)
 ```
 ╦  ╦╔═╗╦  ╔═╗
