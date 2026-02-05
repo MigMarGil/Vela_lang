@@ -99,10 +99,19 @@ auto doubled = map([1, 2, 3], |x| x * 2)
 
 ### Quick Installation
 ```bash
-git clone https://github.com/MigMarGil/vela.git
-cd vela
-chmod +x install.sh
-./install.sh
+# 1. Clone the repository
+git clone https://github.com/MigMarGil/Vela_lang.git
+cd Vela_lang
+
+# 2. Create virtual environment (recommended)
+python3 -m venv venv
+source venv/bin/activate
+
+# 3. Install Vela
+pip install -e .
+
+# 4. Test it
+vela run examples/basic/hello.vela
 ```
 ### Manual Installation
 ```bash
