@@ -1,0 +1,27 @@
+func max(a: int, b: int) -> int {
+    if a > b {
+        return a
+    } else {
+        return b
+    }
+}
+
+func min(a: int, b: int) -> int {
+    if a < b {
+        return a
+    }
+    return b
+}
+
+func abs(n: int) -> int {
+    if n < 0 {
+        return 0 - n
+    }
+    return n
+}
+
+func main() -> void {
+    print(max(10, 20))
+    print(min(10, 20))
+    print(abs(0 - 15))
+}

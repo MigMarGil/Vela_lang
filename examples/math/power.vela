@@ -1,0 +1,35 @@
+func power(base: int, exp: int) -> int {
+    auto result = 1
+    auto i = 0
+    
+    while i < exp {
+        result = result * base
+        i = i + 1
+    }
+    
+    return result
+}
+
+func power_fast(base: int, exp: int) -> int {
+    if exp == 0 {
+        return 1
+    }
+    if exp == 1 {
+        return base
+    }
+    
+    auto half = power_fast(base, exp / 2)
+    
+    if exp % 2 == 0 {
+        return half * half
+    } else {
+        return half * half * base
+    }
+}
+
+func main() -> void {
+    print(power(2, 10))
+    print(power(3, 5))
+    print(power_fast(2, 20))
+    print(power_fast(5, 7))
+}

@@ -1,0 +1,19 @@
+#!/usr/bin/env python3
+"""
+Vela
+Punto de entrada principal
+"""
+
+import sys
+import os
+from pathlib import Path
+
+# Agregar el directorio src al path
+vela_root = Path(__file__).parent.parent
+sys.path.insert(0, str(vela_root))
+
+# Importar y ejecutar CLI
+from src.cli.vela_main import main
+
+if __name__ == '__main__':
+    sys.exit(main())

@@ -1,0 +1,18 @@
+func multiply_loop(a: int, b: int) -> int {
+    auto result = 0
+    auto i = 0
+    while i < b {
+        result = result + a
+        i = i + 1
+    }
+    return result
+}
+
+func multiply_direct(a: int, b: int) -> int {
+    return a * b
+}
+
+func main() -> void {
+    print(multiply_loop(123, 456))
+    print(multiply_direct(123, 456))
+}

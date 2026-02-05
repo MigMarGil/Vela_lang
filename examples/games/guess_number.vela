@@ -1,0 +1,28 @@
+func guess_game_simulation(target: int, max_tries: int) -> int {
+    auto low = 1
+    auto high = 100
+    auto tries = 0
+    
+    while tries < max_tries {
+        auto guess = (low + high) / 2
+        tries = tries + 1
+        
+        if guess == target {
+            return tries
+        }
+        
+        if guess < target {
+            low = guess + 1
+        } else {
+            high = guess - 1
+        }
+    }
+    
+    return 0 - 1
+}
+
+func main() -> void {
+    print(guess_game_simulation(42, 10))
+    print(guess_game_simulation(87, 10))
+    print(guess_game_simulation(13, 10))
+}

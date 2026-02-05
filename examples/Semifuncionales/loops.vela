@@ -1,0 +1,11 @@
+func count_to_ten() -> void {
+    auto i = 1
+    while i <= 10 {
+        print(i)
+        i = i + 1
+    }
+}
+
+func main() -> void {
+    count_to_ten()
+}

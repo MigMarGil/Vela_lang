@@ -1,0 +1,38 @@
+func add(a: float, b: float) -> float {
+    return a + b
+}
+
+func subtract(a: float, b: float) -> float {
+    return a - b
+}
+
+func multiply(a: float, b: float) -> float {
+    return a * b
+}
+
+func divide(a: float, b: float) -> float {
+    if b == 0.0 {
+        print("Error: División por cero")
+        return 0.0
+    }
+    return a / b
+}
+
+func power(base: float, exp: int) -> float {
+    auto result = 1.0
+    for i in range(exp) {
+        result = result * base
+    }
+    return result
+}
+
+func main() -> void {
+    print("Calculadora Vela")
+    print("================")
+    
+    print("10 + 5 = " + str(add(10.0, 5.0)))
+    print("10 - 5 = " + str(subtract(10.0, 5.0)))
+    print("10 * 5 = " + str(multiply(10.0, 5.0)))
+    print("10 / 5 = " + str(divide(10.0, 5.0)))
+    print("2 ^ 8 = " + str(power(2.0, 8)))
+}

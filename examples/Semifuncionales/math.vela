@@ -1,0 +1,8 @@
+func suma(a: int, b: int) -> int {
+    return a + b
+}
+
+func main() -> void {
+    auto resultado = suma(5, 3)
+    print(resultado)
+}

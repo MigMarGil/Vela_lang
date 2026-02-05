@@ -1,0 +1,37 @@
+trait Shape {
+    func area() -> float
+    func perimeter() -> float
+}
+
+class Circle : Shape {
+    float radius
+    
+    func area() -> float {
+        return 3.14159 * radius * radius
+    }
+    
+    func perimeter() -> float {
+        return 2.0 * 3.14159 * radius
+    }
+}
+
+class Rectangle : Shape {
+    float width
+    float height
+    
+    func area() -> float {
+        return width * height
+    }
+    
+    func perimeter() -> float {
+        return 2.0 * (width + height)
+    }
+}
+
+func main() -> void {
+    auto circle = Circle { radius = 5.0 }
+    print("Área del círculo: " + str(circle.area()))
+    
+    auto rect = Rectangle { width = 4.0, height = 6.0 }
+    print("Área del rectángulo: " + str(rect.area()))
+}

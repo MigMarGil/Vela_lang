@@ -1,0 +1,13 @@
+func main() -> void {
+    auto a = 10
+    auto b = 20
+    auto suma = a + b
+    auto resta = a - b
+    auto mult = a * b
+    auto div = b / a
+    
+    print(suma)
+    print(resta)
+    print(mult)
+    print(div)
+}

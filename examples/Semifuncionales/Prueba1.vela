@@ -1,0 +1,5 @@
+func main() -> void {
+    print("Bienvenido a Vela")
+    print("El Mejor Lenguaje del Mundo")
+    print("¡Ahora ve y crea algo increíble!")
+}

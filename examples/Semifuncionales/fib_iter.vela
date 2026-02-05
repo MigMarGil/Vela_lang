@@ -1,0 +1,24 @@
+func fibonacci(n: int) -> int {
+    if n <= 1 {
+        return n
+    }
+    
+    auto a = 0
+    auto b = 1
+    auto i = 2
+    
+    while i <= n {
+        auto temp = a + b
+        a = b
+        b = temp
+        i = i + 1
+    }
+    
+    return b
+}
+
+func main() -> void {
+    print(fibonacci(10))
+    print(fibonacci(15))
+    print(fibonacci(20))
+}

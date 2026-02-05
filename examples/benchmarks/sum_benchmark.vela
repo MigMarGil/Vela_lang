@@ -1,0 +1,18 @@
+func sum_to(n: int) -> int {
+    auto total = 0
+    auto i = 1
+    while i <= n {
+        total = total + i
+        i = i + 1
+    }
+    return total
+}
+
+func sum_formula(n: int) -> int {
+    return (n * (n + 1)) / 2
+}
+
+func main() -> void {
+    print(sum_to(1000000))
+    print(sum_formula(1000000))
+}

@@ -1,0 +1,23 @@
+func factorial_recursive(n: int) -> int {
+    if n <= 1 {
+        return 1
+    }
+    return n * factorial_recursive(n - 1)
+}
+
+func factorial_iterative(n: int) -> int {
+    auto result = 1
+    auto i = 2
+    while i <= n {
+        result = result * i
+        i = i + 1
+    }
+    return result
+}
+
+func main() -> void {
+    print(factorial_iterative(5))
+    print(factorial_iterative(10))
+    print(factorial_iterative(7))
+    print(factorial_iterative(999))
+}

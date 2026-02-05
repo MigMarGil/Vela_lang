@@ -1,0 +1,21 @@
+func factorial(n: int) -> int {
+    auto result = 1
+    auto i = 2
+    while i <= n {
+        result = result * i
+        i = i + 1
+    }
+    return result
+}
+
+func catalan(n: int) -> int {
+    return factorial(2 * n) / (factorial(n + 1) * factorial(n))
+}
+
+func main() -> void {
+    auto i = 0
+    while i <= 10 {
+        print(catalan(i))
+        i = i + 1
+    }
+}

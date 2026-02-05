@@ -1,0 +1,13 @@
+func sum_to(n: int) -> int {
+    auto total = 0
+    auto i = 1
+    while i <= n {
+        total = total + i
+        i = i + 1
+    }
+    return total
+}
+
+func main() -> void {
+    print(sum_to(1000000))
+}

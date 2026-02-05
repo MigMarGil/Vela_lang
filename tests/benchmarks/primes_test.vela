@@ -1,0 +1,32 @@
+func is_prime(n: int) -> int {
+    if n <= 1 {
+        return 0
+    }
+    if n == 2 {
+        return 1
+    }
+    auto i = 2
+    while i * i <= n {
+        if n % i == 0 {
+            return 0
+        }
+        i = i + 1
+    }
+    return 1
+}
+
+func count_primes(limit: int) -> int {
+    auto count = 0
+    auto n = 2
+    while n <= limit {
+        if is_prime(n) == 1 {
+            count = count + 1
+        }
+        n = n + 1
+    }
+    return count
+}
+
+func main() -> void {
+    print(count_primes(100000))
+}

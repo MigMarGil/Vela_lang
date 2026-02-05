@@ -1,0 +1,37 @@
+func collatz_steps(n: int) -> int {
+    auto steps = 0
+    
+    while n != 1 {
+        if n % 2 == 0 {
+            n = n / 2
+        } else {
+            n = 3 * n + 1
+        }
+        steps = steps + 1
+    }
+    
+    return steps
+}
+
+func collatz_max_steps(limit: int) -> int {
+    auto max_steps = 0
+    auto max_n = 0
+    auto n = 1
+    
+    while n <= limit {
+        auto steps = collatz_steps(n)
+        if steps > max_steps {
+            max_steps = steps
+            max_n = n
+        }
+        n = n + 1
+    }
+    
+    return max_n
+}
+
+func main() -> void {
+    print(collatz_steps(27))
+    print(collatz_steps(100))
+    print(collatz_max_steps(1000))
+}

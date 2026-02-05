@@ -1,0 +1,59 @@
+# Máquina de Turing simulada en Vela (si tuviera arrays dinámicos)
+func turing_machine(tape: [int], rules: [(int, int, int, int)], steps: int) -> [int] {
+    auto head = 0
+    auto state = 0
+    auto step = 0
+    
+    while step < steps {
+        auto current_symbol = tape[head]
+        
+        # Buscar regla: (estado_actual, simbolo_actual) -> (nuevo_simbolo, movimiento, nuevo_estado)
+        auto rule_found = false
+        auto i = 0
+        while i < len(rules) and not rule_found {
+            auto rule = rules[i]
+            if rule[0] == state and rule[1] == current_symbol {
+                tape[head] = rule[2]  # Escribir nuevo símbolo
+                
+                # Mover cabeza: 0=izq, 1=der
+                if rule[3] == 0 {
+                    head = head - 1
+                    if head < 0 {
+                        # Expandir cinta (esto necesitaría arrays dinámicos)
+                        head = 0
+                    }
+                } else {
+                    head = head + 1
+                    if head >= len(tape) {
+                        # Expandir cinta
+                        # tape.push(0)  # <-- Necesitarías esta función
+                    }
+                }
+                
+                state = rule[4]
+                rule_found = true
+            }
+            i = i + 1
+        }
+        
+        if not rule_found {
+            break  # Estado de parada
+        }
+        
+        step = step + 1
+    }
+    
+    return tape
+}
+
+func main() -> void {
+    # Ejemplo simple: cinta que convierte 0->1 y 1->0
+    auto tape = [0, 1, 0, 1, 0]
+    auto rules = [
+        (0, 0, 1, 1, 0),  # En estado 0, ver 0: escribe 1, mueve derecha, queda en estado 0
+        (0, 1, 0, 1, 0)   # En estado 0, ver 1: escribe 0, mueve derecha, queda en estado 0
+    ]
+    
+    auto result = turing_machine(tape, rules, 5)
+    print("Resultado de máquina de Turing simulada")
+}
