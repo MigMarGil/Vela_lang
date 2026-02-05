@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <defs>
+    <linearGradient id="flameGradientIcon" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFD700;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#FF8C00;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FF4500;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="200" height="200" fill="#1A1A1A" rx="20"/>
+  
+  <!-- Main V shape (simplified) -->
+  <path d="M 40 60 L 100 160 L 160 60 Z" fill="#FFFFFF" opacity="0.95"/>
+  
+  <!-- Candle body -->
+  <rect x="87.5" y="40" width="25" height="70" rx="3" fill="#F5F5F5"/>
+  
+  <!-- Candle shadow -->
+  <rect x="87.5" y="40" width="12.5" height="70" rx="3" fill="#E0E0E0" opacity="0.3"/>
+  
+  <!-- Wick -->
+  <rect x="98.5" y="25" width="3" height="18" rx="1.5" fill="#2C2C2C"/>
+  
+  <!-- Flame -->
+  <ellipse cx="100" cy="20" rx="8" ry="13" fill="url(#flameGradientIcon)"/>
+  <ellipse cx="100" cy="23" rx="4" ry="8" fill="#FFE55C" opacity="0.8"/>
+  <ellipse cx="100" cy="24" rx="2" ry="4" fill="#FFFACD"/>
+</svg>
