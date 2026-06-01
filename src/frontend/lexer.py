@@ -5,16 +5,13 @@ from dataclasses import dataclass
 from typing import List, Optional
 
 class TokenType(Enum):
-    # Literales
     NUMBER = auto()
     STRING = auto()
     BOOLEAN = auto()
     NULL = auto()
     
-    # Identificadores
     IDENTIFIER = auto()
     
-    # Palabras clave
     FUNC = auto()
     RETURN = auto()
     IF = auto()
@@ -25,7 +22,6 @@ class TokenType(Enum):
     BREAK = auto()
     CONTINUE = auto()
     
-    # Tipos
     INT = auto()
     FLOAT = auto()
     STR = auto()
@@ -33,7 +29,6 @@ class TokenType(Enum):
     VOID = auto()
     AUTO = auto()
     
-    # Características avanzadas
     ASYNC = auto()
     AWAIT = auto()
     PARALLEL = auto()
@@ -47,7 +42,6 @@ class TokenType(Enum):
     TRAIT = auto()
     IMPL = auto()
     
-    # Operadores
     PLUS = auto()
     MINUS = auto()
     MULTIPLY = auto()
@@ -70,7 +64,6 @@ class TokenType(Enum):
     FAT_ARROW = auto()
     PIPELINE = auto()
     
-    # Delimitadores
     LPAREN = auto()
     RPAREN = auto()
     LBRACE = auto()
@@ -83,7 +76,6 @@ class TokenType(Enum):
     DOT = auto()
     QUESTION = auto()
     
-    # Especiales
     NEWLINE = auto()
     EOF = auto()
     COMMENT = auto()
@@ -106,7 +98,6 @@ class Lexer:
         self.column = 1
         self.tokens = []
         
-        # Palabras clave de Vela
         self.keywords = {
             'func': TokenType.FUNC,
             'return': TokenType.RETURN,
@@ -190,7 +181,7 @@ class Lexer:
     def read_string(self, quote: str) -> Token:
         start_line = self.line
         start_col = self.column
-        self.advance()  # Skip opening quote
+        self.advance()
         
         string_val = ''
         while self.current_char() and self.current_char() != quote:
@@ -212,7 +203,7 @@ class Lexer:
                 string_val += self.current_char()
                 self.advance()
         
-        self.advance()  # Skip closing quote
+        self.advance()
         return Token(TokenType.STRING, string_val, start_line, start_col)
     
     def read_identifier(self) -> Token:
@@ -241,39 +232,32 @@ class Lexer:
             if not self.current_char():
                 break
             
-            # Comentarios
             if self.current_char() == '#':
                 self.skip_comment()
                 continue
             
-            # Newlines
             if self.current_char() == '\n':
                 token = Token(TokenType.NEWLINE, '\n', self.line, self.column)
                 self.tokens.append(token)
                 self.advance()
                 continue
             
-            # Números
             if self.current_char().isdigit():
                 self.tokens.append(self.read_number())
                 continue
             
-            # Strings
             if self.current_char() in '"\'':
                 quote = self.current_char()
                 self.tokens.append(self.read_string(quote))
                 continue
             
-            # Identificadores y palabras clave
             if self.current_char().isalpha() or self.current_char() == '_':
                 self.tokens.append(self.read_identifier())
                 continue
             
-            # Operadores y símbolos
             line, col = self.line, self.column
             char = self.current_char()
             
-            # Operadores de dos caracteres
             if char == '=' and self.peek() == '=':
                 self.tokens.append(Token(TokenType.EQ, '==', line, col))
                 self.advance()
@@ -314,7 +298,6 @@ class Lexer:
                 self.tokens.append(Token(TokenType.POWER, '**', line, col))
                 self.advance()
                 self.advance()
-            # Operadores simples
             elif char == '+':
                 self.tokens.append(Token(TokenType.PLUS, '+', line, col))
                 self.advance()
