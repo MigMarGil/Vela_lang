@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Vela Language</title>
+    <meta name="description" content="Vela is a compact programming language with LLVM-backed compilation and expressive syntax." />
+    <style>
+      :root { color-scheme: dark; }
+      body { font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; margin: 0; background: #07111f; color: #f5f7fb; }
+      main { max-width: 960px; margin: 0 auto; padding: 3rem 1.5rem 5rem; }
+      h1 { font-size: 2.6rem; margin-bottom: 0.8rem; }
+      p { line-height: 1.6; color: #b8c2d6; }
+      code { background: rgba(255,255,255,0.08); padding: 0.15rem 0.35rem; border-radius: 4px; }
+      pre { background: #0f1b2d; padding: 1rem; border-radius: 10px; overflow-x: auto; }
+      .card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 1.2rem; margin-top: 1rem; }
+      .actions { display: flex; gap: 0.8rem; flex-wrap: wrap; margin-top: 1.3rem; }
+      .actions a { text-decoration: none; color: #07111f; background: #7dd3fc; padding: 0.75rem 1rem; border-radius: 999px; font-weight: 700; }
+      .actions a.secondary { background: transparent; color: #7dd3fc; border: 1px solid #7dd3fc; }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Vela</h1>
+      <p>A compact programming language born from a simple ambition: build something that could one day be used by a community, tested against real benchmarks, and taken seriously as a systems-level tool.</p>
+      <div class="actions">
+        <a href="https://github.com/MigMarGil/Vela_lang">View repository</a>
+        <a class="secondary" href="#try-it">Try it locally</a>
+      </div>
+
+      <div class="card">
+        <h2>Why Vela exists</h2>
+        <p>The project started as an ambitious personal challenge: create a language that could be judged by performance, clarity, and usefulness rather than by hype alone. Benchmarks matter because they turn a dream into something measurable.</p>
+      </div>
+
+      <div class="card">
+        <h2>What it offers</h2>
+        <ul>
+          <li>Readable syntax with type inference</li>
+          <li>LLVM-based compilation pipeline</li>
+          <li>Examples for algorithms, scripts, and control flow</li>
+          <li>Simple CLI for running and checking programs</li>
+        </ul>
+      </div>
+
+      <div class="card" id="try-it">
+        <h2>Quick start</h2>
+        <pre><code>git clone https://github.com/MigMarGil/Vela_lang.git
+cd Vela_lang
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -e .
+vela run examples/basic/hello.vela</code></pre>
+      </div>
+    </main>
+  </body>
+</html>

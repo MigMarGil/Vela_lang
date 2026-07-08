@@ -1,263 +1,87 @@
-<p align="center">
-  <img src="assets/vela-icon.svg" alt="Vela Logo" width="200"/>
-</p>
+# Vela
 
+Vela is an experimental programming language born from a simple idea: build a language that is expressive, fast enough to be taken seriously, and practical for a real community to use. The project started from the belief that a language can be both elegant and ambitious, and that performance should be measured with benchmarks instead of slogans.
 
-# Vela (ENGLISH)
-```
-╦  ╦╔═╗╦  ╔═╗
-╚╗╔╝║╣ ║  ╠═╣
- ╚╝ ╚═╝╩═╝╩ ╩
-```
-**Vela** is a programming language that combines modern syntax elegance, LLVM compilation power, and advanced features like type inference, functional programming, async/await, and automatic parallel execution.
+It is not yet a mature production language, but it already demonstrates a coherent compiler story, a clean syntax, and a serious effort to reach the level of systems-oriented languages.
 
-## Features
+## Why it is interesting
 
-### Smart Type Inference
-```vela
-auto x = 42           # int
-auto y = 3.14         # float
-auto name = "Vela"    # str
-auto items = [1, 2, 3] # [int]
-```
-### Pipeline Operator
-```vela
-[1, 2, 3, 4, 5]
-    |> map(|x| x * 2)
-    |> filter(|x| x > 5)
-    |> sum()
-    |> print()
-```
-### Pattern Matching
-```vela
-match value {
-    0 => print("zero"),
-    1 => print("one"),
-    n if n < 0 => print("negative"),
-    _ => print("other")
-}
-```
+Vela is worth building if you want to explore three things at once:
 
-### Native Async/Await
-```vela
-async func fetch_data(url: str) -> str {
-    auto response = await http_get(url)
-    return response.body
-}
+- a compact language with readable syntax
+- a compiler pipeline that goes from source to LLVM IR
+- a project that can grow into a teaching tool, research playground, or small language ecosystem
 
-async func main() -> void {
-    auto data = await fetch_data("https://api.example.com")
-    print(data)
-}
-```
-### Automatic Parallel Execution
-```vela
-parallel {
-    process_data_1(),
-    process_data_2(),
-    process_data_3()
-}
-```
-### Object-Oriented Programming + Traits
-```vela
-trait Drawable {
-    func draw() -> void
-}
+It is not trying to replace Python, Rust, or Go today. Its strength is that it is small, understandable, and easy to extend.
 
-trait Movable {
-    func move(x: int, y: int) -> void
-}
+## What works today
 
-class Circle : Drawable, Movable {
-    float radius
-    int x
-    int y
-    
-    func draw() -> void {
-        print("Drawing circle at (" + str(x) + ", " + str(y) + ")")
-    }
-    
-    func move(dx: int, dy: int) -> void {
-        x += dx
-        y += dy
-    }
-}
-```
-### First-Class Functions
-```vela
-func map(arr: [int], f: |int| -> int) -> [int] {
-    auto result = []
-    for item in arr {
-        result.push(f(item))
-    }
-    return result
-}
+- A working CLI with commands for run, check, compile, and examples
+- Basic functions, loops, conditionals, recursion, and printing
+- Type inference and basic type checking
+- LLVM IR generation and a native executable build path
+- Example programs under the examples folder
 
-auto doubled = map([1, 2, 3], |x| x * 2)
-```
-## Installation
+## Quick start
 
-### Requirements
-- Python 3.8+
-- LLVM 10+
-- pip
-
-### Quick Installation
 ```bash
-# 1. Clone the repository
 git clone https://github.com/MigMarGil/Vela_lang.git
 cd Vela_lang
-
-# 2. Create virtual environment (recommended)
-python3 -m venv venv
-source venv/bin/activate
-
-# 3. Install Vela
+python3 -m venv .venv
+source .venv/bin/activate
 pip install -e .
-
-# 4. Test it
 vela run examples/basic/hello.vela
 ```
-### Manual Installation
-```bash
-pip install -r requirements.txt
-pip install -e .
-```
-## Usage
 
-### Run a file
-```bash
-vela run programa.vela
-```
-### Interactive mode (REPL)
-```bash
-vela repl
-```
-### Compile to object code
-```bash
-vela compile programa.vela -o programa.o
-```
-### Check syntax and types
-```bash
-vela check programa.vela
-```
-### View examples
-```bash
-vela examples
-```
-## Examples
+## Example
 
-### Hello World
 ```vela
 func main() -> void {
-    print("Hello, World!")
+    print("Hello Vela")
 }
 ```
-### Recursive Factorial
-```vela
-func factorial(n: int) -> int {
-    if n <= 1 {
-        return 1
-    }
-    return n * factorial(n - 1)
-}
 
-func main() -> void {
-    print(factorial(5))  # 120
-}
+## Project structure
+
+```text
+src/
+  frontend/   # lexer, parser, AST, type checker
+  backend/    # LLVM compiler and executor
+  cli/        # command-line interface
+examples/     # sample programs
+tests/        # smoke tests and future regression tests
+docs/         # landing page and launch notes
 ```
-### FizzBuzz
-```vela
-func fizzbuzz(n: int) -> void {
-    for i in range(1, n + 1) {
-        match (i % 3, i % 5) {
-            (0, 0) => print("FizzBuzz"),
-            (0, _) => print("Fizz"),
-            (_, 0) => print("Buzz"),
-            _ => print(i)
-        }
-    }
-}
 
-func main() -> void {
-    fizzbuzz(100)
-}
-```
-### Async Web Server
-```vela
-import http
+## Current maturity
 
-async func handle_request(req: Request) -> Response {
-    auto data = await fetch_from_db(req.params.id)
-    return Response(status=200, body=data)
-}
+This is a promising early-stage project. It is good for:
 
-async func main() -> void {
-    auto server = http.Server(port=8080)
-    server.on_request(handle_request)
-    await server.start()
-}
-```
-### Advanced Type System
-```vela
-trait Container<T> {
-    func add(item: T) -> void
-    func get(index: int) -> T
-    func size() -> int
-}
+- compiler education
+- language experimentation
+- building a small but credible portfolio project
 
-class Stack<T> : Container<T> {
-    [T] items
-    
-    func add(item: T) -> void {
-        items.push(item)
-    }
-    
-    func get(index: int) -> T {
-        return items[index]
-    }
-    
-    func size() -> int {
-        return len(items)
-    }
-    
-    func pop() -> T {
-        return items.pop()
-    }
-}
+It is not yet a "serious production language" and that is fine. The best path forward is to make it focused, documented, and visibly usable.
 
-func main() -> void {
-    auto stack = Stack<int>()
-    stack.add(1)
-    stack.add(2)
-    stack.add(3)
-    print(stack.pop())  # 3
-}
-```
-## Architecture
-```
-vela/
-├── bin/
-│   └── vela              # Main executable
-├── src/
-│   ├── frontend/
-│   │   ├── lexer.py      # Lexical analysis
-│   │   ├── parser.py     # Syntactic analysis
-│   │   ├── ast.py        # Abstract syntax tree
-│   │   └── types.py      # Type system
-│   ├── backend/
-│   │   └── llvm_compiler.py  # LLVM compiler
-│   └── cli/
-│       └── vela_main.py  # Command-line interface
-├── examples/             # Code examples
-├── tests/               # Unit tests
-├── requirements.txt     # Dependencies
-├── setup.py            # Installation config
-└── README.md           # This file
-```
-## Technical Features
+## Roadmap
 
-- Native code compilation via LLVM
+- [x] Lexer and parser
+- [x] Basic type checking
+- [x] LLVM IR generation
+- [ ] Better REPL experience
+- [ ] Standard library
+- [ ] Modules and imports
+- [ ] Package manager
+- [ ] Tutorials and benchmarks
+
+## Launch and visibility
+
+If you want to make this project more visible, start with the materials in [docs/index.html](docs/index.html) and [docs/launch-plan.md](docs/launch-plan.md).
+
+## License
+
+MIT License.
+
 - Static type inference with generic support
 - Functional programming with first-class functions and lambdas
 - Object-oriented programming with classes and traits
