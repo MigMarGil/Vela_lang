@@ -16,11 +16,11 @@ It is not trying to replace Python, Rust, or Go today. Its strength is that it i
 
 ## What works today
 
-- A working CLI with commands for run, check, compile, and examples
+- A working CLI with commands for `run`, `check`, `compile`, and `examples`
 - Basic functions, loops, conditionals, recursion, and printing
 - Type inference and basic type checking
 - LLVM IR generation and a native executable build path
-- Example programs under the examples folder
+- Example programs under the `examples/` folder
 
 ## Quick start
 
@@ -35,7 +35,7 @@ vela run examples/basic/hello.vela
 
 ## Example
 
-```vela
+```rust
 func main() -> void {
     print("Hello Vela")
 }
@@ -43,7 +43,7 @@ func main() -> void {
 
 ## Project structure
 
-```text
+```
 src/
   frontend/   # lexer, parser, AST, type checker
   backend/    # LLVM compiler and executor
@@ -61,81 +61,67 @@ This is a promising early-stage project. It is good for:
 - language experimentation
 - building a small but credible portfolio project
 
-It is not yet a "serious production language" and that is fine. The best path forward is to make it focused, documented, and visibly usable.
+It is not yet a "serious production language," and that is fine. The best path forward is to make it focused, documented, and visibly usable.
 
 ## Roadmap
 
+**Done**
 - [x] Lexer and parser
 - [x] Basic type checking
 - [x] LLVM IR generation
+- [x] Functions and recursion
+- [x] Control structures
+
+**In progress / next**
 - [ ] Better REPL experience
+- [ ] JIT execution
 - [ ] Standard library
 - [ ] Modules and imports
+- [ ] Advanced pattern matching
 - [ ] Package manager
+
+**Longer-term / exploratory**
+- [ ] Static type inference with generic support
+- [ ] Functional programming: first-class functions and lambdas
+- [ ] Object-oriented programming: classes and traits
+- [ ] Async/await
+- [ ] Pipeline operator for function composition
+- [ ] Automatic parallel execution
+- [ ] Aggressive compile-time optimizations
+- [ ] Advanced memory management
+- [ ] LSP (Language Server Protocol)
+- [ ] Integrated debugger
+- [ ] WebAssembly target
 - [ ] Tutorials and benchmarks
 
 ## Launch and visibility
 
-If you want to make this project more visible, start with the materials in [docs/index.html](docs/index.html) and [docs/launch-plan.md](docs/launch-plan.md).
-
-## License
-
-MIT License.
-
-- Static type inference with generic support
-- Functional programming with first-class functions and lambdas
-- Object-oriented programming with classes and traits
-- Async/Await for asynchronous programming
-- Advanced pattern matching
-- Pipeline operator for function composition
-- Automatic parallel execution
-- Aggressive compile-time optimizations
-- Clean and expressive syntax
-
-## Roadmap
-
-- [x] Complete Lexer and Parser
-- [x] Type system with inference
-- [x] Compilation to LLVM IR
-- [x] Functions and recursion
-- [x] Control structures
-- [x] Pattern matching
-- [ ] JIT Execution
-- [ ] Modules and imports
-- [ ] Advanced memory management
-- [ ] Complete standard library
-- [ ] Package manager
-- [ ] LSP (Language Server Protocol)
-- [ ] Integrated debugger
-- [ ] WebAssembly target
+If you want to make this project more visible, start with the materials in `docs/index.html` and `docs/launch-plan.md`.
 
 ## Contributing
 
 Contributions are welcome! Please:
+
 1. Fork the repository
-2. Create a branch for your feature (git checkout -b feature/amazing)
-3. Commit your changes (git commit -am 'Add amazing feature')
-4. Push to the branch (git push origin feature/amazing)
+2. Create a branch for your feature (`git checkout -b feature/amazing`)
+3. Commit your changes (`git commit -am 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing`)
 5. Open a Pull Request
 
 ## License
 
-MIT License - see LICENSE file for details
+MIT License — see the `LICENSE` file for details.
 
 ## Authors
 
-- **Vela Team** - 
-MiguelM_dev
-...
+Vela Team — Miguel Martín Gil ([@MigMarGil](https://github.com/MigMarGil))
 
 ## Acknowledgments
 
 - To the LLVM community for their incredible infrastructure
-- To all languages that inspired us: Rust, Swift, Python, Haskell, OCaml
+- To the languages that inspired Vela: Rust, Swift, Python, Haskell, OCaml
 - To the open-source community
 
 ---
 
-Vela - Where code becomes art
-
-________________________________________________
+*Vela — where code becomes art.*
